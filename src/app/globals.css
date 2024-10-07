@@ -8,7 +8,7 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
@@ -30,4 +30,11 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.header {
+  @apply text-2xl font-bold m-0 p-5 text-white bg-blue-800 text-center fixed top-0 w-full z-10
+}
+.footer {
+  @apply text-2xl font-bold m-0 p-5 text-white bg-blue-800 text-center fixed bottom-0 w-full z-10
 }
