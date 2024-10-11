@@ -39,7 +39,7 @@ export default function Home() {
       <div className='top-2xl grid grid-cols-3 gap-4 w-[1150px] mx-auto mt-20 mb-20'>
         {data.results.map((movie:any) =>
 //         <div className='rounded bg-green-500 text-white p-4 w-[370px]'>
-          <Box>
+          <Box key={movie.id}>
             {movie.title}
             <img className='cursor-pointer transition-transform duration-300 ease-in-out transform hover:rotate-1' 
             src={'https://image.tmdb.org/t/p/w300_and_h450_bestv2/' + movie.poster_path} 
@@ -50,8 +50,7 @@ export default function Home() {
       </div>
       <div className='footer'>
         {currentPage}/{data.total_pages + '　　'}
-        <Button className='p-5' variant='contained' color='secondary' disabled={currentPage == 1} onClick={handleClickPrev}>前へ</Button>
-        　
+        <Button className='p-5' variant='contained' color='secondary' disabled={currentPage == 1} onClick={handleClickPrev}>前へ</Button>　
         <Button className='p-5' variant='contained' color='secondary' disabled={currentPage == data.total_pages} onClick={handleClickNext}>次へ</Button> 
       </div>
     </main>
