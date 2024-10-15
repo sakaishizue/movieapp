@@ -6,10 +6,12 @@ import { Grid, Typography, Box , Button } from '@mui/material';
 import { Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
+type FlexibleTuple = (string | number | boolean)[];
+
 const url1 = 'https://api.themoviedb.org/3/movie/';
 const url2 = '?api_key=33f42472680147c2a769a49364b87503&language=ja&region=JP';
 const url3 = '/credits';
-const fetcher = (...args:any[]) => fetch(args).then(res => res.json());
+const fetcher = (...args:FlexibleTuple) => fetch(args).then(res => res.json());
 
 export default function Home() {
     const searchParams = useSearchParams();
