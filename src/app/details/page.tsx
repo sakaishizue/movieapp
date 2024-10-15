@@ -6,7 +6,7 @@ import { Grid, Typography, Box , Button } from '@mui/material';
 import { Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-type FlexibleTuple = (string | number | boolean)[];
+type FlexibleTuple = (string | URL | Request)[];
 
 const url1 = 'https://api.themoviedb.org/3/movie/';
 const url2 = '?api_key=33f42472680147c2a769a49364b87503&language=ja&region=JP';
