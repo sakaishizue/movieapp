@@ -30,5 +30,8 @@
   },
   "scripts": {
     "build": "DISABLE_ESLINT_PLUGIN=true next build"
+  },
+  "compilerOptions": {
+    "noImplicitAny": false
   }
 }
