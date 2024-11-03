@@ -6,7 +6,7 @@ import { Button,Box } from '@mui/material';
 import Image from 'next/image';
 
 const url = 'https://api.themoviedb.org/3/movie/now_playing?api_key=33f42472680147c2a769a49364b87503&language=ja&region=JP&page=';
-const fetcher = (...args:any[]) => fetch(...args).then(res => res.json());
+const fetcher = (...args:[RequestInfo, RequestInit?]) => fetch(...args).then(res => res.json());
 
 export default function Home() {
   const [currentPage,setCurrentPage] = useState(1);
