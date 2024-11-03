@@ -1,12 +1,10 @@
 'use client'
-import React,{useState} from 'react';
+import React,{Suspense} from 'react';
 import { useRouter,useSearchParams } from 'next/navigation';
 import useSWR from 'swr';
 import { Grid, Typography, Box , Button } from '@mui/material';
 import { Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-
-type FlexibleTuple = (string | URL | Request)[];
 
 const url1 = 'https://api.themoviedb.org/3/movie/';
 const url2 = '?api_key=33f42472680147c2a769a49364b87503&language=ja&region=JP';
@@ -30,7 +28,7 @@ export default function Home() {
     if (il1||il2) return <div>読み込み中...</div>;
   
     return (
-        <>
+      <Suspense fallback={<div>Loading...</div>}>
         <div className='header'>{data1.title}</div>
         <Box sx={{ flexGrow: 1, padding: 2 }} className='mt-20 mb-20'>
         <Grid container spacing={2}>
@@ -64,6 +62,6 @@ export default function Home() {
       <div className='footer'>
         <Button variant='contained' color='secondary' onClick={handleClick}>一覧に戻る</Button> 
       </div>
-      </>
+      </Suspense>
       )
 }
