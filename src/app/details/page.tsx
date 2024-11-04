@@ -19,7 +19,7 @@ export default function Home() {
     )
 }
 
-export function DetailsContent() {
+function DetailsContent() {
     const searchParams = useSearchParams();
     const id = searchParams.get('id');
     const {data:data1,error:error1,isLoading:il1} = useSWR(url1 + id + url2,fetcher);
