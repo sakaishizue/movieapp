@@ -12,6 +12,14 @@ const url3 = '/credits';
 const fetcher = (...args:[RequestInfo, RequestInit?]) => fetch(...args).then(res => res.json());
 
 export default function Home() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <DetailsContent/>
+    </Suspense>
+    )
+}
+
+export function DetailsContent() {
     const searchParams = useSearchParams();
     const id = searchParams.get('id');
     const {data:data1,error:error1,isLoading:il1} = useSWR(url1 + id + url2,fetcher);
@@ -21,14 +29,14 @@ export default function Home() {
     const handleClick = () => {
         router.push('/');
     };
-    console.log(data1);
-    console.log(data2);
+//    console.log(data1);
+//    console.log(data2);
   
     if (error1||error2) return <div>エラーが発生しました</div>;
     if (il1||il2) return <div>読み込み中...</div>;
   
     return (
-      <Suspense fallback={<div>Loading...</div>}>
+    <>
         <div className='header'>{data1.title}</div>
         <Box sx={{ flexGrow: 1, padding: 2 }} className='mt-20 mb-20'>
         <Grid container spacing={2}>
@@ -62,6 +70,6 @@ export default function Home() {
       <div className='footer'>
         <Button variant='contained' color='secondary' onClick={handleClick}>一覧に戻る</Button> 
       </div>
-      </Suspense>
-      )
+    </>
+    )
 }
