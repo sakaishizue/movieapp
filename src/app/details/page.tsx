@@ -45,7 +45,7 @@ function DetailsContent() {
         <div className='header'>{data1.title}</div>
         <Box sx={{ flexGrow: 1, padding: 2 }} className='mt-20 mb-20'>
         <Grid container spacing={2}>
-          <Grid item xs={12} md={6} className='items-center justify-center'>
+          <Grid item xs={12} md={6} container justifyContent='center' alignItems='center'>
             <img src={'https://image.tmdb.org/t/p/w400/' + data1.poster_path} onError={handleImgError}/>
           </Grid>
           <Grid item xs={12} md={6}>
